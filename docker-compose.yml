@@ -1,38 +1,35 @@
 version: '3.8'
 services:
   vprodb:
-    image: sayeedmds/vprofileapp:V1
+    image: sayeedmds/vprofiledb:V1
     ports:
-      - "3306:3306"
+    - "3306:3306"
     volumes:
-      - vprodbdata:/var/lib/mysql
+    - vprodbdata:/var/lib/mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=vprodbapps
+      - MYSQL_ROOT_PASSWORD=vprodbpass
   vprocache01:
-     image: memcached
-     ports:
-       - "11211:11211"
+    image: memcached
+    ports:
+    - "11211:11211"
   vpromq01:
-     image: rabbitmq
-     ports:
-       - "15672:15672"
-     environment:
-       - RABBITMQ_DEFAULT_USER=guest
-       - RABBTIMQ_DEFAULT_PASS=guest
+    image: rabbitmq
+    ports:
+    - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
   vproapp:
-    image: sayeedmds/vprofileapp:V1
+    image: sayeedmds/vprofileapp
     ports:
-      - "8080:8080"
+    - "8080:8080"
     volumes:
-      - vproappdata:/usr/local/tomcat/webapps/
-
+    - vproappdata:/usr/local/tomcat/webapps/
   vproweb:
-    images: sayeedmds/vprofileweb
+    image: sayeedmds/vprofileweb
     ports:
-      - "80:80"
+    - "80:80"
+
 volumes:
   vprodbdata: {}
   vproappdata: {}
-
-
-
