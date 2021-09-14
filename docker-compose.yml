@@ -7,7 +7,7 @@ services:
     volumes:
       - vprodbdata:/var/lib/mysql
     environment:
-       - MYSQL_ROOT_PASSWORD=vprodbapps
+      - MYSQL_ROOT_PASSWORD=vprodbapps
   vprocache01:
      image: memcached
      ports:
@@ -17,19 +17,19 @@ services:
      ports:
        - "15672:15672"
      environment:
-        - RABBITMQ_DEFAULT_USER=guest
-        - RABBTIMQ_DEFAULT_PASS=guest
+       - RABBITMQ_DEFAULT_USER=guest
+       - RABBTIMQ_DEFAULT_PASS=guest
   vproapp:
-     image: sayeedmds/vprofileapp:V1
-     ports:
-       - "8080:8080"
-     volumes:
-       - vproappdata:/usr/local/tomcat/webapps/
+    image: sayeedmds/vprofileapp:V1
+    ports:
+      - "8080:8080"
+    volumes:
+      - vproappdata:/usr/local/tomcat/webapps/
 
   vproweb:
-     images: sayeedmds/vprofileweb
-     ports:
-       - "80:80"
+    images: sayeedmds/vprofileweb
+    ports:
+      - "80:80"
 volumes:
   vprodbdata: {}
   vproappdata: {}
