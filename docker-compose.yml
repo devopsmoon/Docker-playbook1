@@ -25,6 +25,7 @@ services:
     - "8080:8080"
     volumes:
     - vproappdata:/usr/local/tomcat/webapps/
+
   vproweb:
     image: sayeedmds/vprofileweb:V1
     ports:
