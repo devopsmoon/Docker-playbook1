@@ -20,13 +20,13 @@ services:
       - RABBITMQ_DEFAULT_USER=guest
       - RABBITMQ_DEFAULT_PASS=guest
   vproapp:
-    image: sayeedmds/vprofileapp
+    image: sayeedmds/vprofileapp:V1
     ports:
     - "8080:8080"
     volumes:
     - vproappdata:/usr/local/tomcat/webapps/
   vproweb:
-    image: sayeedmds/vprofileweb
+    image: sayeedmds/vprofileweb:V1
     ports:
     - "80:80"
 
