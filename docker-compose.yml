@@ -1,7 +1,7 @@
 version: '3'
 services:
   vprodb:
-    image: sayeedmds/vprofileapp
+    image: sayeedmds/vprofileapp:V1
     ports:
       - "3306:3306"
     volumes:
@@ -23,7 +23,7 @@ vpromq01:
     - RABBITMQ_DEFAULT_USER=guest
     - RABBTIMQ_DEFAULT_PASS=guest
 vproapp:
-  image: sayeedmds/vprofileapp
+  image: sayeedmds/vprofileapp:V1
   ports:
     - "8080:8080"
   volumes:
